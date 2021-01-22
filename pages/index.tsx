@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { initializeApollo } from "src/apollo";
 import { useQuery, gql } from "@apollo/client";
 
 const MyQuery = gql`
@@ -16,4 +16,15 @@ export default function Home() {
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const apolloClient = initializeApollo();
+
+  await apolloClient.query({
+    query: MyQuery,
+  });
+  return {
+    props: { initialApolloState: apolloClient.cache.extract() },
+  };
 }
