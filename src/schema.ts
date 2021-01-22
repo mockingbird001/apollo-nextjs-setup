@@ -2,7 +2,7 @@ import { makeSchema, queryType } from "@nexus/schema";
 
 const Query = queryType({
   definition(t) {
-    t.string("name");
+    t.string("name", () => "Bom");
   },
 });
 
