@@ -1,5 +1,5 @@
 import { ApolloProvider } from "@apollo/client";
-import { useApollo } from "sec/apollo";
+import { useApollo } from "src/apollo";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
